@@ -7,7 +7,7 @@ export interface IStockMediaCount {
 export const MOCK_MAX_COUNT = 100;
 export default async function getSocialMediaCountGenerator(
     stockSymbol: string,
-    socialMedia: SocialMediaType
+    socialMedia: SocialMediaType,
 ): Promise<number> {
     if (stockSymbol === "GME" && socialMedia === "reddit") {
         return Promise.resolve(MOCK_MAX_COUNT);

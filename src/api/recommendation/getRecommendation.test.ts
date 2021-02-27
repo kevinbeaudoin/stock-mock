@@ -1,6 +1,4 @@
-import getRecommendation, {
-    MOCK_BUY_HOLD_MIN_COUNT,
-} from "./getRecommendation";
+import getRecommendation, { MOCK_BUY_HOLD_MIN_COUNT } from "./getRecommendation";
 
 test("Should return a buy if last price > avg price and social count > 50 .", async () => {
     const params = {

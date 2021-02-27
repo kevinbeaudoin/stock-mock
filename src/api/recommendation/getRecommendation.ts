@@ -1,9 +1,4 @@
-export type Recommendation = "buy" | "hold" | "sell";
-
-export interface IStockRecommendation {
-    stockPrices: number[];
-    socialMediaCounts: number;
-}
+import { IStockRecommendation, Recommendation } from "./models";
 
 export const MOCK_BUY_HOLD_MIN_COUNT = 50;
 export default async function recommendationAlgorithm(params: IStockRecommendation): Promise<Recommendation> {

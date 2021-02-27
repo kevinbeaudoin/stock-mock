@@ -6,9 +6,9 @@ const fonts = {
     /** font size: 10px */
     fontSizeXs: "10px",
     /** font size: 12px */
-    fontSizeSm: "12px",
+    fontSizeSm: "14px",
     /** font size: 14px */
-    fontSizeMd: "14px",
+    fontSizeMd: "16px",
     /** font size: 18px */
     fontSizeLg: "18px",
     /** font size: 24px */

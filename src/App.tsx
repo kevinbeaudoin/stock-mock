@@ -2,21 +2,28 @@ import React from "react";
 
 // components
 import Header from "ui/header/Header";
-import Toolbar from "ui/toolbar/StockToolbar";
-import StockSummary from "ui/main/StockSummary";
+import StockRecommender from "ui/main/StockRecommender";
 import Footer from "ui/footer/Footer";
 import BaseTheme from "ui/common/theme/baseTheme";
 
+// style
+import styled from "styled-components";
+
+const AppContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+`;
+
 function App() {
     return (
-        <div className="App">
+        <AppContainer>
             <BaseTheme>
                 <Header />
-                <Toolbar />
-                <StockSummary />
+                <StockRecommender />
                 <Footer />
             </BaseTheme>
-        </div>
+        </AppContainer>
     );
 }
 

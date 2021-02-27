@@ -1,5 +1,29 @@
 import React from "react";
 
+// Style
+import styled, { css } from "styled-components";
+
+const BaseInput = styled.input(
+    ({ theme }) => css`
+        background-color: ${theme.defaultBgColor};
+        border: ${theme.lightBorderColor};
+        border-radius: ${theme.radiusMd};
+        box-shadow: none;
+        color: ${theme.colorText};
+        font-size: ${theme.fontSizeMd};
+        margin: ${theme.spacingXs};
+        padding: ${theme.spacingSm};
+
+        :active {
+            border: ${theme.activeBorderColor};
+        }
+        :focus {
+            outline: 0;
+            box-shadow: rgb(255 255 255) 0px 0px 0px 1px, rgb(5 180 110 / 30%) 0px 0px 0px 4px;
+        }
+    `,
+);
+
 export type InputType = "text" | "search";
 
 export interface IProps {
@@ -35,7 +59,7 @@ export default class Input extends React.PureComponent<IProps, IState> {
 
     public render() {
         return (
-            <input
+            <BaseInput
                 ref={this.inputRef}
                 className={this.props.className}
                 id={this.props.id}

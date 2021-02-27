@@ -1,8 +1,4 @@
-export type SocialMediaType = "twitter" | "stocktwits" | "reddit";
-
-export interface IStockMediaCount {
-    socialMediaType: SocialMediaType;
-}
+import { SocialMediaType } from "./models";
 
 export const MOCK_MAX_COUNT = 100;
 export default async function getSocialMediaCountGenerator(
@@ -12,6 +8,6 @@ export default async function getSocialMediaCountGenerator(
     if (stockSymbol === "GME" && socialMedia === "reddit") {
         return Promise.resolve(MOCK_MAX_COUNT);
     } else {
-        return Math.random() * MOCK_MAX_COUNT;
+        return Math.floor(Math.random() * MOCK_MAX_COUNT);
     }
 }

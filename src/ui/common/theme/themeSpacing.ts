@@ -9,6 +9,13 @@ const spacing = {
     spacingLg: "24px",
     /** spacing xs : 32px */
     spacingXl: "32px",
+
+    /** radius sm : 2px */
+    radiusSm: "2px",
+    /** radius md : 4px */
+    radiusMd: "4px",
+    /** radius lg : 8px */
+    radiusLg: "8px",
 };
 
 export default spacing;

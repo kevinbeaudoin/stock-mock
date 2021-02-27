@@ -4,6 +4,16 @@ This project is a mock project of a simple app created in React using TypeScript
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Styled Components
+
+I hesitated a lot before introducing Styled Component in this sample app since requirements specified that we should keep the amount of reference to a minimum and use (CSS/SASS/LESS). I decided to add Styled component anyway for the following reasons.
+
+-   App size is a concern and as we move on with CSS, changes are we will forget to maintain some css. Styled component will remove any unrequired
+-   Chances are that at some point we will want to introduce some theming and this will be faily easy to do with styled component.
+-   Styled component adds some tooling that will allow us to easily identify element as we inpect the DOM.
+-   Using styled component, browser specific prefixes on css attributes gets added automatically so it is easier to support multiple browsers.
+-   Style component combined with Jest also allow us to include css in our component snapshot.
+
 ## Available Scripts
 
 In the project directory, you can run:

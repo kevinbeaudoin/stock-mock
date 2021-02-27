@@ -16,25 +16,7 @@ import SocialMediaSelector from "ui/toolbar/SocialMediaSelector";
 import StockPrices from "ui/main/StockPrices";
 import SocialMediaCount from "ui/toolbar/SocialMediaCount";
 import StockRecommendation from "ui/toolbar/StockRecommendation";
-
-// style
-import styled, { css } from "styled-components";
-
-const MainSection = styled.main(
-    ({ theme }) => css`
-        margin: ${theme.spacingMd};
-    `,
-);
-const StockToolbar = styled.section`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-`;
-const StockPricesSection = styled.section``;
-
-const StockSentiment = styled.div`
-    display: flex;
-`;
+import { MainSection, StockToolbar, StockPricesSection } from "./StockRecommender.style";
 
 interface IProps {}
 interface IState {
@@ -130,12 +112,10 @@ export default class StockRecommender extends React.PureComponent<IProps, IState
                         onSocialMediaChanged={this.onSocialMediaChange.bind(this)}
                     />
                     <StockHorizonSelector days={daysHorizon} onHorizonChanged={this.onHorizonChanged.bind(this)} />
+                    <SocialMediaCount count={socialMediaCount} socialMediaType={socialMediaType} />
+                    <StockRecommendation recommendation={stockRecommendation} />
                 </StockToolbar>
                 <StockPricesSection>
-                    <StockSentiment>
-                        <StockRecommendation recommendation={stockRecommendation} />
-                        <SocialMediaCount count={socialMediaCount} socialMediaType={socialMediaType} />
-                    </StockSentiment>
                     <StockPrices prices={stockPrices} />
                 </StockPricesSection>
             </MainSection>

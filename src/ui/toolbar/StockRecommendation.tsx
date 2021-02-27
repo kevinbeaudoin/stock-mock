@@ -1,44 +1,10 @@
 import React from "react";
 
+// models
 import { Recommendation } from "api/recommendation/models";
 
-// style
-import styled, { css } from "styled-components";
-
-const RecommendationBadge = styled.span<{ recommendation: Recommendation }>(
-    ({ theme, recommendation }) => css`
-        border-radius: ${theme.radiusMd};
-        color: white;
-        font-weight: ${theme.fontWeightBold};
-        margin: 0 ${theme.spacingMd};
-        padding: ${theme.spacingXs} ${theme.spacingSm};
-
-        ${recommendation === "buy" &&
-        css`
-            background-color: ${theme.colorPositive};
-        `}
-
-        ${recommendation === "hold" &&
-        css`
-            background-color: ${theme.colorNeutral};
-        `}
-
-        ${recommendation === "sell" &&
-        css`
-            background-color: ${theme.colorNegative};
-        `}
-    `,
-);
-
-const RecommendationContainer = styled.div(
-    ({ theme }) => css`
-        display: flex;
-        margin: ${theme.spacingMd};
-        align-items: center;
-    `,
-);
-
-const RecommendationLabel = styled.span``;
+// components
+import { RecommendationContainer, RecommendationBadge } from "./StockRecommendation.style";
 
 interface IProps {
     recommendation?: Recommendation;
@@ -63,7 +29,6 @@ export default class StockRecommendation extends React.PureComponent<IProps, ISt
         }
         return (
             <RecommendationContainer>
-                <RecommendationLabel>{"Recommendation :"}</RecommendationLabel>
                 <RecommendationBadge recommendation={recommendation}>{text}</RecommendationBadge>
             </RecommendationContainer>
         );

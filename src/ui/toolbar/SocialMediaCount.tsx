@@ -1,53 +1,19 @@
 import React from "react";
 
 // models
-import { NEUTRAL_COUNT, POSITIVE_COUNT, SocialMediaType } from "api/socialMedia/models";
+import { NEUTRAL_COUNT, POSITIVE_COUNT, Sentiment, SocialMediaType } from "api/socialMedia/models";
 
-// style
-import styled, { css } from "styled-components";
+// component
+import { SocialMediaContainer, SocialMediaIcon, SocialMediaCountBadge } from "./SocialMediaCount.style";
 
-const SocialMediaContainer = styled.div(
-    ({ theme }) => css`
-        display: flex;
-        margin: ${theme.spacingMd};
-        align-items: center;
-    `,
-);
-
-const SocialMediaLabel = styled.span``;
-
-const SocialMediaCountBadge = styled.span<{ sentiment: Sentiment }>(
-    ({ theme, sentiment }) => css`
-        border-radius: ${theme.radiusMd};
-        color: white;
-        font-weight: ${theme.fontWeightBold};
-        margin: 0 ${theme.spacingMd};
-        padding: ${theme.spacingXs} ${theme.spacingSm};
-
-        ${sentiment === "positive" &&
-        css`
-            background-color: ${theme.colorPositive};
-        `}
-
-        ${sentiment === "neutral" &&
-        css`
-            background-color: ${theme.colorNeutral};
-        `}
-
-        ${sentiment === "negative" &&
-        css`
-            background-color: ${theme.colorNegative};
-        `}
-    `,
-);
+// icons
+import { FaTwitter, FaReddit } from "react-icons/fa";
 
 interface IProps {
     count: number;
     socialMediaType: SocialMediaType;
 }
 interface IState {}
-
-type Sentiment = "positive" | "neutral" | "negative";
 
 export default class SocialMediaCount extends React.PureComponent<IProps, IState> {
     private getSentiment(): Sentiment {
@@ -60,13 +26,20 @@ export default class SocialMediaCount extends React.PureComponent<IProps, IState
         }
     }
 
+    private getSocialMediaIcon() {
+        return this.props.socialMediaType === "reddit" ? <FaReddit /> : <FaTwitter />;
+    }
+
     public render() {
         if (!this.props.count) {
             return null;
         }
+
+        const icon = this.getSocialMediaIcon();
+
         return (
             <SocialMediaContainer>
-                <SocialMediaLabel>{this.props.socialMediaType}</SocialMediaLabel>
+                <SocialMediaIcon>{icon}</SocialMediaIcon>
                 <SocialMediaCountBadge sentiment={this.getSentiment()}>{this.props.count}</SocialMediaCountBadge>
             </SocialMediaContainer>
         );

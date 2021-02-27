@@ -1,28 +1,7 @@
 import React from "react";
 
-// style
-import styled, { css } from "styled-components";
-
-const StockPricesContainer = styled.ul(
-    ({ theme }) => css`
-        list-style: none;
-        margin: ${theme.spacingMd};
-        padding: 0;
-    `,
-);
-const StockPriceLine = styled.li``;
-
-const StockDate = styled.span(
-    ({ theme }) => css`
-        color: ${theme.lightColorText};
-        margin-right: ${theme.spacingXs};
-    `,
-);
-const StockPrice = styled.span(
-    ({ theme }) => css`
-        font-weight: ${theme.fontWeightBold};
-    `,
-);
+// component
+import { StockPricesContainer, StockDate, StockPrice, StockPriceLine } from "./StockPrices.style";
 
 interface IProps {
     prices: number[];

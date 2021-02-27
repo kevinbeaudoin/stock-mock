@@ -19,6 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
     "test": "react-scripts test",
     "coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject"
@@ -42,6 +43,7 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "source-map-explorer": "^2.5.2"
   }
 }

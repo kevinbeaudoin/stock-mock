@@ -20,6 +20,16 @@ export default class StockFinder extends React.PureComponent<IProps, IState> {
             stockSymbol: stockSymbol.toUpperCase(),
         });
     }
+
+    private onInputSubmit(stockSymbol: string) {
+        this.setState(
+            {
+                stockSymbol: stockSymbol.toUpperCase(),
+            },
+            this.onSearchStock,
+        );
+    }
+
     private onSearchStock() {
         this.props.onStockSymbolChanged(this.state.stockSymbol);
     }
@@ -32,6 +42,7 @@ export default class StockFinder extends React.PureComponent<IProps, IState> {
                     placeholder="Stock Symbol"
                     value={stockSymbol}
                     onChange={this.onInputChange.bind(this)}
+                    onSubmit={this.onInputSubmit.bind(this)}
                 />
                 <StockFinderButton onClick={this.onSearchStock.bind(this)}>go</StockFinderButton>
             </StockFinderContainer>

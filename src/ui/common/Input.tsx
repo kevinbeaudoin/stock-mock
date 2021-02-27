@@ -36,7 +36,7 @@ export interface IProps {
     value: string;
     onChange?: (value: string) => void;
     onChangeFocus?: (focus: boolean) => void;
-    onSubmit?: (event: React.FormEvent<HTMLInputElement>) => void;
+    onSubmit?: (value: string) => void;
 }
 
 export interface IState {}
@@ -53,8 +53,12 @@ export default class Input extends React.PureComponent<IProps, IState> {
         this.props.onChange?.(this.inputRef.current?.value || "");
     }
 
-    private onSubmit(e: React.FormEvent<HTMLInputElement>) {
-        this.props.onSubmit?.(e);
+    private onKeyPress(e: React.KeyboardEvent<HTMLInputElement>) {
+        if (e.key === "Enter") {
+            e.stopPropagation();
+            e.preventDefault();
+            this.props.onSubmit?.(this.inputRef.current?.value || "");
+        }
     }
 
     public render() {
@@ -69,7 +73,7 @@ export default class Input extends React.PureComponent<IProps, IState> {
                 placeholder={this.props.placeholder}
                 value={this.props.value}
                 onChange={this.onChange.bind(this)}
-                onSubmit={this.onSubmit.bind(this)}
+                onKeyPress={this.onKeyPress.bind(this)}
             />
         );
     }

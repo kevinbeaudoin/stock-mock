@@ -4,11 +4,9 @@ import Input from "ui/common/Input";
 // Style
 import styled, { css } from "styled-components";
 
-export const StockFinderContainer = styled.div(
-    ({ theme }) => css`
-        display: flex;
-    `,
-);
+export const StockFinderContainer = styled.div`
+    display: flex;
+`;
 
 export const StockFinderInput = styled(Input)(
     ({ theme }) =>
@@ -36,6 +34,9 @@ export const StockFinderButton = styled.button(
         user-select: none;
         :hover {
             opacity: 0.8;
+        }
+        .react-icons {
+            vertical-align: middle;
         }
     `,
 );

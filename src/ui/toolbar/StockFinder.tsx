@@ -3,6 +3,8 @@ import React from "react";
 // Component
 import { StockFinderContainer, StockFinderInput, StockFinderButton } from "./StockFinder.style";
 
+import { FaSearch } from "react-icons/fa";
+
 interface IProps {
     onStockSymbolChanged: (stock: string) => void;
 }
@@ -44,7 +46,9 @@ export default class StockFinder extends React.PureComponent<IProps, IState> {
                     onChange={this.onInputChange.bind(this)}
                     onSubmit={this.onInputSubmit.bind(this)}
                 />
-                <StockFinderButton onClick={this.onSearchStock.bind(this)}>go</StockFinderButton>
+                <StockFinderButton onClick={this.onSearchStock.bind(this)}>
+                    <FaSearch className="react-icons" />
+                </StockFinderButton>
             </StockFinderContainer>
         );
     }

@@ -14,6 +14,7 @@ import StockFinder from "ui/toolbar/StockFinder";
 import StockHorizonSelector from "ui/toolbar/StockHorizonSelector";
 import SocialMediaSelector from "ui/toolbar/SocialMediaSelector";
 import StockPrices from "ui/main/StockPrices";
+import SocialMediaPosts from "ui/main/SocialMediaPosts";
 import SocialMediaCount from "ui/toolbar/SocialMediaCount";
 import StockRecommendation from "ui/toolbar/StockRecommendation";
 import { MainSection, StockToolbar, StockPricesSection } from "./StockRecommender.style";
@@ -101,7 +102,14 @@ export default class StockRecommender extends React.PureComponent<IProps, IState
     }
 
     public render() {
-        const { daysHorizon, socialMediaCount, stockRecommendation, socialMediaType, stockPrices } = this.state;
+        const {
+            daysHorizon,
+            socialMediaCount,
+            stockRecommendation,
+            socialMediaType,
+            stockPrices,
+            stockSymbol,
+        } = this.state;
         return (
             <MainSection>
                 <StockToolbar>
@@ -118,6 +126,7 @@ export default class StockRecommender extends React.PureComponent<IProps, IState
                 <StockPricesSection>
                     <StockPrices prices={stockPrices} />
                 </StockPricesSection>
+                <SocialMediaPosts stockSymbol={stockSymbol} socialMediaType={socialMediaType} />
             </MainSection>
         );
     }

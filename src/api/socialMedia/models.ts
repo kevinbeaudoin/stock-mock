@@ -7,3 +7,9 @@ export type Sentiment = "positive" | "neutral" | "negative";
 export interface IStockMediaCount {
     socialMediaType: SocialMediaType;
 }
+
+export interface ISocialMediaPost {
+    stockSymbol: string;
+    socialMediaType: SocialMediaType;
+    message: string;
+}

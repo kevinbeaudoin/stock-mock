@@ -12,14 +12,6 @@ export const SocialMediaContainer = styled.div(
     `,
 );
 
-export const SocialMediaIcon = styled.div(
-    ({ theme }) => css`
-        font-size: ${theme.spacingLg};
-        width: 24px;
-        height: 24px;
-    `,
-);
-
 export const SocialMediaCountBadge = styled.span<{ sentiment: Sentiment }>(
     ({ theme, sentiment }) => css`
         border-radius: ${theme.radiusMd};
